@@ -17,7 +17,7 @@ function App() {
       </main>
       
       <footer className="py-4 text-center text-gray-600">
-        <p>© 2025 ROTC Framework. Made with ❤️ </p>
+        <p>© 2025 Isabelle Choi. Made with ❤️ </p>
       </footer>
     </div>
   );
