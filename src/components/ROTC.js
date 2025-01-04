@@ -22,19 +22,26 @@ const ROTC = () => {
     const cleanedInputs = _.mapValues(inputs, str => 
       str.trim().replace(/\s+/g, ' ')
     );
-
-    const prompt = `역할:
-${cleanedInputs.role}
-
-목표:
-${cleanedInputs.objectives}
-
-작업:
-${cleanedInputs.task}
-
-맥락:
-${cleanedInputs.contexts}`;
-    
+  
+    // 역할에 전문성 추가
+    const enhancedRole = cleanedInputs.role.includes('유능한') || cleanedInputs.role.includes('시니어') 
+      ? cleanedInputs.role 
+      : `유능한 시니어 ${cleanedInputs.role}`;
+  
+    // 맥락을 구조화
+    const contextFormatted = `<context>\n${cleanedInputs.contexts}\n</context>`;
+  
+    // 마크다운 형식의 프롬프트 생성 (불필요한 공백 제거)
+    const prompt = `# ${enhancedRole}
+  
+  너는 ${enhancedRole}야. ${cleanedInputs.objectives} 이를 위해 ${cleanedInputs.task}
+  
+  ${contextFormatted}
+  
+  위 내용을 바탕으로 전문성 있게 답변해줘.
+  
+  <userStyle>Normal</userStyle>`;
+  
     setGeneratedPrompt(prompt);
   };
 
