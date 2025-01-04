@@ -31,7 +31,7 @@ const ROTC = () => {
     // 맥락을 구조화
     const contextFormatted = `<context>\n${cleanedInputs.contexts}\n</context>`;
   
-    // 마크다운 형식의 프롬프트 생성 (불필요한 공백 제거)
+    // 마크다운 형식의 프롬프트 생성
     const prompt = `# ${enhancedRole}
   
   너는 ${enhancedRole}야. ${cleanedInputs.objectives} 이를 위해 ${cleanedInputs.task}
@@ -57,10 +57,10 @@ const ROTC = () => {
         
         <div className="space-y-4">
           {[
-            { key: 'role', label: '역할', placeholder: '예: AI 튜터, 데이터 분석가' },
-            { key: 'objectives', label: '목표', placeholder: '예: 학습 효과 향상' },
-            { key: 'task', label: '작업', placeholder: '예: 학습 계획 수립' },
-            { key: 'contexts', label: '맥락', placeholder: '예: 고등학생 대상' }
+            { key: 'role', label: '역할', placeholder: '예: AI 비서, 마케터, 데이터 분석가' },
+            { key: 'objectives', label: '목표', placeholder: '예: 내가 가르치는 학생의 학습 효과를 향상하고 싶어.' },
+            { key: 'task', label: '작업', placeholder: '예: 성적을 기반으로 개인화된 학습 계획을 수립해줘.' },
+            { key: 'contexts', label: '맥락', placeholder: '예: 나는 해외에서 학교를 다녔고 학생은 한국에서만 학교를 다녔어.' }
           ].map(({ key, label, placeholder }) => (
             <div key={key} className="space-y-2">
               <label className="block font-medium text-gray-700">
