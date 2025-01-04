@@ -2,10 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Apple SD 산돌고딕 Neo 폰트 설정 */
+@font-face {
+  font-family: 'AppleSDGothicNeo';
+  src: local('Apple SD Gothic Neo');
+  font-weight: normal;
+}
+
 /* 커스텀 스타일 */
 @layer base {
   body {
     @apply bg-gray-50;
+    font-family: 'AppleSDGothicNeo', -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
   h1 {
